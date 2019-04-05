@@ -42,5 +42,12 @@ The project is preconfigured with a simple development web server. The simplest 
 
     npm start
 
+### Run Test
 
+```
+npm test
+```
+
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](#running-tests) for more information.
 

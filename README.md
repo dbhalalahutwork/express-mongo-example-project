@@ -1,6 +1,7 @@
 # Hutwork API
 
 [![N|Solid](https://cdn.hutwork.com/wp-content/uploads/2018/03/logo-scroll-1.png)](https://www.hutwork.com/)
+
 Hutwork gives teams just like yours collaboration and planning tools to create unique, highly targeted roadmaps. Check out the product roadmap software and see for yourself.
 
 # Requirements

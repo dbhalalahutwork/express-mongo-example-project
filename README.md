@@ -1,4 +1,4 @@
-# Hutwork API
+# Hutwork UI
 
 [![N|Solid](https://cdn.hutwork.com/wp-content/uploads/2018/03/logo-scroll-1.png)](https://www.hutwork.com/)
 
@@ -10,36 +10,20 @@ This project is an application skeleton for a typical [Node.js](https://nodejs.o
 
   - Node 8
   - Git
-  - MongoDB
 
 ## Getting Started
 To get you started you can simply clone the repository:
 
 ```
-git clone git@bitbucket.org:hutworkteam/hutwork_api.git
+git clone git@bitbucket.org:hutworkteam/hutwork-site.git
 ```
-and navigate to the hutwork_api directory.
+and navigate to the hutwork-site directory.
 ```
-cd hutwork_api
-
+cd hutwork-site
 ```
 and install the dependencies
 ```
 npm install
-```
-
-### MongoDB
-The project uses MongoDB as a database. If you are on Mac and using Homebrew package manager the installation is as simple as `brew install mongodb`.
-If you on linux please check this link to install mongoDB 
-https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
-
-### Start the MongoDB server
-First we need to create the `db` directory where the database files will live in. In your terminal navigate to the `root` of your system by doing `cd ..` until you reach the top directory. You can create the directory by running `sudo mkdir -p /data/db`. Now open a different tab in your terminal and run `mongod` to start the Mongo server.
-
-## Run mongo migrate
-
-```
-$ npm run migrate up
 ```
 
 ### Run the Application
@@ -47,31 +31,13 @@ $ npm run migrate up
 The project is preconfigured with a simple development web server. The simplest way to start this server is:
 
     npm run start
+ 
+### Build the Application
 
-### Run Test
+The simplest way to build project is:
 
-```
-npm run test
-```
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](#running-tests) for more information.
-
-### Run Application on AWS server 
-
-Connect AWS console with this command in ubuntu and mac (you must have pem file with same directory) for window use putty with ppk
-```
-ssh -i HW-KP-01.pem ubuntu@18.216.71.35
-
-```
-Now you have to navigate [/var/www/html](#/var/www/html) directory
-```
-cd /var/www/html
-```
-Next follow same step from [Getting Started](#Getting Started) section to setup API from git
-
-also [Requirements](#Requirements) section is same for server also
-
+    npm run build
+    
 ### Run Application on AWS server 
 
 Connect AWS console with this command in ubuntu and mac (you must have pem file with same directory) for window use putty with ppk
@@ -105,11 +71,11 @@ Next follow same step from [Getting Started](#Getting Started) section to setup 
 
 To get you started you can simply clone the repository:
 ```
-git clone git@bitbucket.org:hutworkteam/hutwork_api.git
+git clone git@bitbucket.org:hutworkteam/hutwork-site.git
 ```
-and navigate to the hutwork_api directory.
+and navigate to the hutwork-site directory.
 ```
-cd hutwork_api
+cd hutwork-site
 ```
 and install the dependencies
 ```
@@ -122,23 +88,10 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt update
 sudo apt install yarn
 ```
-### MongoDB
-The project uses MongoDB as a database. please check this link to install mongoDB 
-https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
-### Start the MongoDB server
-First we need to create the `db` directory where the database files will live in. In your terminal navigate to the `root` of your system by doing `cd ..` until you reach the top directory. You can create the directory by running `sudo mkdir -p /data/db`. Now open a different tab in your terminal and run `mongod` to start the Mongo server.
+This will start UI node server at 3010 port so you have to redirect this port to 80,
 
-## Run mongo migrate
-
+You can do iptables port forwarding by adding following rules in iptables:
 ```
-$ npm run migrate up
+sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3010
 ```
-
-### Run the Application
-
-The project is preconfigured with a simple development web server. The simplest way to start this server is:
-
-    npm run start
-    
-This will run on 3000 port
